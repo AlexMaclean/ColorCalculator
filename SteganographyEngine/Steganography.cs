@@ -4,6 +4,16 @@ using System.Drawing.Imaging;
 
 namespace SteganographyEngine
 {
+    public class PixelOutOfRangeException : Exception
+    {
+        public override string Message
+        {
+            get
+            {
+                return "x or y out of range of image size";
+            }
+        }
+    }
     class Steganography
     {
         string Preamble = String.Empty;
@@ -56,6 +66,11 @@ namespace SteganographyEngine
         {
             int x = i % image.Width;
             int y = i / image.Width;
+
+            if (x >= image.Size.Width || y >= image.Size.Height) {
+                throw new PixelOutOfRangeException();
+            }
+
             return image.GetPixel(x, y);
         }
 
@@ -76,16 +91,24 @@ namespace SteganographyEngine
             string s = String.Empty;
             int i = 0;
             while (true) {
-                Color c1 = GetColor(image, i++);
-                Color c2 = GetColor(image, i++);
-                Color c3 = GetColor(image, i++);
+                Color c1, c2, c3;
+
+                try {
+                    c1 = GetColor(image, i++);
+                    c2 = GetColor(image, i++);
+                    c3 = GetColor(image, i++);
+                }
+                catch(PixelOutOfRangeException) {
+                    return "No end character found";
+                }
+
                 byte c = GetChar(c1, c2, c3);
                 if (c == 0x00) break;
                 s += (char)c;
             }
             if (s.StartsWith(Preamble))
                 return s.Substring(Preamble.Length);
-            return String.Format("No message encoded:\r\n{0}", s.Substring(Preamble.Length));
+            return String.Format("No message encoded:\r\n{0}", s);
         }
 
         private byte GetChar(Color c1, Color c2, Color c3)

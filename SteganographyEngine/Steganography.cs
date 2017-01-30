@@ -14,7 +14,7 @@ namespace SteganographyEngine
             }
         }
     }
-    class Steganography
+    public class Steganography
     {
         string Preamble = String.Empty;
         public Steganography(string preamble)

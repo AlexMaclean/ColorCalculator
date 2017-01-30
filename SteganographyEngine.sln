@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteganographyEngine", "SteganographyEngine\SteganographyEngine.csproj", "{5725A3AF-6D31-48E6-8A9A-A7EE9F1B9CB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject1", "UnitTestProject1\UnitTestProject1.csproj", "{0579AC52-05BE-4B54-8FD8-09E0905BB417}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteganographyUnitTests", "UnitTestProject1\SteganographyUnitTests.csproj", "{0579AC52-05BE-4B54-8FD8-09E0905BB417}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

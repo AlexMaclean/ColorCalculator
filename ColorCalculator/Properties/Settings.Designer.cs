@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SteganographyEngine.Properties
+namespace ColorCalculator.Properties
 {
 
 

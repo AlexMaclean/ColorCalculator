@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteganographyEngine", "SteganographyEngine\SteganographyEngine.csproj", "{5725A3AF-6D31-48E6-8A9A-A7EE9F1B9CB4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SteganographyUnitTests", "UnitTestProject1\SteganographyUnitTests.csproj", "{0579AC52-05BE-4B54-8FD8-09E0905BB417}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorCalculator", "ColorCalculator\ColorCalculator.csproj", "{5725A3AF-6D31-48E6-8A9A-A7EE9F1B9CB4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{5725A3AF-6D31-48E6-8A9A-A7EE9F1B9CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5725A3AF-6D31-48E6-8A9A-A7EE9F1B9CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5725A3AF-6D31-48E6-8A9A-A7EE9F1B9CB4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0579AC52-05BE-4B54-8FD8-09E0905BB417}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0579AC52-05BE-4B54-8FD8-09E0905BB417}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0579AC52-05BE-4B54-8FD8-09E0905BB417}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0579AC52-05BE-4B54-8FD8-09E0905BB417}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

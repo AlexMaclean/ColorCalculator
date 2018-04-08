@@ -47,9 +47,18 @@ namespace ColorCalculator
         private void RecalculateButton_Click(object sender, EventArgs e)
         {
             recalculateButton.Enabled = false;
-            var colorCalculator = new ColorCalculator(equation1.Text, equation2.Text, equation3.Text, equation4.Text, comboBoxColor.Text.Equals("RGB"));
+            var equ1 = defS(equation1.Text, value1.Text.Substring(0, 1));
+            var equ2 = defS(equation2.Text, value2.Text.Substring(0, 1));
+            var equ3 = defS(equation3.Text, value3.Text.Substring(0, 1));
+            var equ4 = defS(equation4.Text, value4.Text.Substring(0, 1));
+            var colorCalculator = new ColorCalculator(equ1, equ2, equ3, equ4, comboBoxColor.Text.Equals("RGB"));
             var threadCalc = new Thread(() => CalculateColor(colorCalculator));
             threadCalc.Start();
+        }
+
+        private string defS(string equation, string def)
+        {
+            return equation == "" ? def : equation;
         }
 
         private void CalculateColor(ColorCalculator colorCalculator)

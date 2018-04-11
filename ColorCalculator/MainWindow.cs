@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Threading;
@@ -11,9 +12,11 @@ namespace ColorCalculator
     {
         public Bitmap Image { get; set; }
         public string ImagePath { get; set; }
+        private Stack<Bitmap> PastImages { get; set; }
 
         public MainWindow()
         {
+            PastImages = new Stack<Bitmap>();
             InitializeComponent();
         }
 
@@ -39,9 +42,18 @@ namespace ColorCalculator
         private void LoadImage(string path)
         {
             ImagePath = path;
-            Image = new Bitmap(path);
-            pictureBox.Image = Image;
+            if (Image != null)
+            {
+                PastImages.Push(Image);
+            }
+            SetImage(new Bitmap(path));
             recalculateButton.Enabled = true;
+        }
+
+        private void SetImage(Bitmap image)
+        {
+            Image = image;
+            pictureBox.Image = Image;
         }
 
         private void RecalculateButton_Click(object sender, EventArgs e)
@@ -63,12 +75,12 @@ namespace ColorCalculator
 
         private void CalculateColor(ColorCalculator colorCalculator)
         {
-            var newImage = colorCalculator.GetRecolor(Image, SetProgress);
+            var newImage = colorCalculator.GetRecolor(new Bitmap(Image), SetProgress);
 
             RunUI(() =>
             {
-                Image = newImage;
-                pictureBox.Image = Image;
+                PastImages.Push(Image);
+                SetImage(newImage);
                 saveButton.Enabled = true;
                 recalculateButton.Enabled = true;
                 progressBar1.Value = 0;
@@ -117,6 +129,20 @@ namespace ColorCalculator
             var dot = oldPath.LastIndexOf(".", StringComparison.Ordinal);
             var slash = oldPath.LastIndexOf("\\", StringComparison.Ordinal);
             return $"{oldPath.Substring(slash + 1, dot - slash - 1)}(recolor).png";
+        }
+
+        private void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Z:
+                    if (e.Control)
+                    {
+                        if(PastImages.Count > 0)
+                        SetImage(PastImages.Pop());
+                    }
+                    break;
+            }
         }
     }
 }

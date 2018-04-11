@@ -63,7 +63,17 @@ namespace ColorCalculator
             var equ2 = DefaultString(equation2.Text, value2.Text.Substring(0, 1));
             var equ3 = DefaultString(equation3.Text, value3.Text.Substring(0, 1));
             var equ4 = DefaultString(equation4.Text, value4.Text.Substring(0, 1));
-            var colorCalculator = new ColorCalculator(equ1, equ2, equ3, equ4, comboBoxColor.Text.Equals("RGB"));
+            ColorCalculator colorCalculator;
+            try
+            {
+                colorCalculator = new ColorCalculator(equ1, equ2, equ3, equ4, comboBoxColor.Text.Equals("RGB"));
+            }
+            catch (Exception exception)
+            {
+                DisplayError(exception);
+                recalculateButton.Enabled = true;
+                return;
+            }
             var threadCalc = new Thread(() => CalculateColor(colorCalculator));
             threadCalc.Start();
         }
@@ -75,8 +85,21 @@ namespace ColorCalculator
 
         private void CalculateColor(ColorCalculator colorCalculator)
         {
-            var newImage = colorCalculator.GetRecolor(new Bitmap(Image), SetProgress);
-
+            Bitmap newImage;
+            try
+            {
+                newImage = colorCalculator.GetRecolor(new Bitmap(Image), SetProgress);
+            }
+            catch (Exception exception)
+            {
+                RunUi(() =>
+                {
+                    DisplayError(exception);
+                    recalculateButton.Enabled = true;
+                });
+                return;
+            }
+                
             RunUi(() =>
             {
                 PastImages.Push(Image);
@@ -85,6 +108,14 @@ namespace ColorCalculator
                 recalculateButton.Enabled = true;
                 progressBar1.Value = 0;
             });
+        }
+
+        private void DisplayError(Exception e)
+        {
+            using (var err = new ErrorDlg(e.Message))
+            {
+                err.ShowDialog(this);
+            }
         }
 
         private void SetProgress(int progressValue)

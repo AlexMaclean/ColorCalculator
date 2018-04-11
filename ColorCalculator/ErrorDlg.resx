@@ -117,16 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PNG_files" xml:space="preserve">
-    <value>PNG files (*.png)|*.png</value>
-  </data>
-  <data name="All_Picture_Files" xml:space="preserve">
-    <value>All Picture Files (*.bmp, *.jpg, *.jpeg, *.png, *.ico, *.gif)|*.bmp;*.jpg;*.jpeg;*.png;*.ico;*.gif</value>
-  </data>
-  <data name="Select_an_image" xml:space="preserve">
-    <value>Select an image to recalculate</value>
-  </data>
-  <data name="Error_Title" xml:space="preserve">
-    <value>Unable to Recalculate Image</value>
-  </data>
 </root>

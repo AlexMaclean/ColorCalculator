@@ -70,6 +70,15 @@ namespace ColorCalculator.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to Recalculate Image.
+        /// </summary>
+        internal static string Error_Title {
+            get {
+                return ResourceManager.GetString("Error_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PNG files (*.png)|*.png.
         /// </summary>
         internal static string PNG_files {

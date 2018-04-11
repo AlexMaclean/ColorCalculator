@@ -161,7 +161,9 @@ namespace ColorCalculator
 
             public override double GetValue(Dictionary<char, double> dictionary)
             {
+                if(dictionary.ContainsKey(Value))
                 return dictionary[Value];
+                throw new Exception("Could not find variable \"" + Value + "\"");
             }
         }
 

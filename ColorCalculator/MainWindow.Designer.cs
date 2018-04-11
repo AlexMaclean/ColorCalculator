@@ -104,7 +104,7 @@
             this.recalculateButton.Margin = new System.Windows.Forms.Padding(2);
             this.recalculateButton.Name = "recalculateButton";
             this.recalculateButton.Size = new System.Drawing.Size(144, 40);
-            this.recalculateButton.TabIndex = 5;
+            this.recalculateButton.TabIndex = 3;
             this.recalculateButton.Text = "Recalculate";
             this.recalculateButton.UseVisualStyleBackColor = true;
             this.recalculateButton.Click += new System.EventHandler(this.RecalculateButton_Click);
@@ -114,7 +114,7 @@
             this.equation4.Location = new System.Drawing.Point(66, 113);
             this.equation4.Name = "equation4";
             this.equation4.Size = new System.Drawing.Size(194, 20);
-            this.equation4.TabIndex = 6;
+            this.equation4.TabIndex = 7;
             // 
             // value4
             // 
@@ -122,7 +122,7 @@
             this.value4.Location = new System.Drawing.Point(10, 116);
             this.value4.Name = "value4";
             this.value4.Size = new System.Drawing.Size(43, 13);
-            this.value4.TabIndex = 7;
+            this.value4.TabIndex = 6;
             this.value4.Text = "Value 4";
             // 
             // value3
@@ -131,7 +131,7 @@
             this.value3.Location = new System.Drawing.Point(10, 90);
             this.value3.Name = "value3";
             this.value3.Size = new System.Drawing.Size(43, 13);
-            this.value3.TabIndex = 9;
+            this.value3.TabIndex = 4;
             this.value3.Text = "Value 3";
             // 
             // equation3
@@ -139,7 +139,7 @@
             this.equation3.Location = new System.Drawing.Point(66, 87);
             this.equation3.Name = "equation3";
             this.equation3.Size = new System.Drawing.Size(194, 20);
-            this.equation3.TabIndex = 8;
+            this.equation3.TabIndex = 5;
             // 
             // value2
             // 
@@ -147,7 +147,7 @@
             this.value2.Location = new System.Drawing.Point(10, 64);
             this.value2.Name = "value2";
             this.value2.Size = new System.Drawing.Size(43, 13);
-            this.value2.TabIndex = 11;
+            this.value2.TabIndex = 2;
             this.value2.Text = "Value 2";
             // 
             // equation2
@@ -155,7 +155,7 @@
             this.equation2.Location = new System.Drawing.Point(66, 61);
             this.equation2.Name = "equation2";
             this.equation2.Size = new System.Drawing.Size(194, 20);
-            this.equation2.TabIndex = 10;
+            this.equation2.TabIndex = 3;
             // 
             // value1
             // 
@@ -163,7 +163,7 @@
             this.value1.Location = new System.Drawing.Point(10, 38);
             this.value1.Name = "value1";
             this.value1.Size = new System.Drawing.Size(43, 13);
-            this.value1.TabIndex = 13;
+            this.value1.TabIndex = 0;
             this.value1.Text = "Value 1";
             // 
             // equation1
@@ -171,7 +171,7 @@
             this.equation1.Location = new System.Drawing.Point(66, 35);
             this.equation1.Name = "equation1";
             this.equation1.Size = new System.Drawing.Size(194, 20);
-            this.equation1.TabIndex = 12;
+            this.equation1.TabIndex = 1;
             // 
             // comboBoxColor
             // 
@@ -182,7 +182,7 @@
             this.comboBoxColor.Location = new System.Drawing.Point(158, 18);
             this.comboBoxColor.Name = "comboBoxColor";
             this.comboBoxColor.Size = new System.Drawing.Size(53, 21);
-            this.comboBoxColor.TabIndex = 14;
+            this.comboBoxColor.TabIndex = 1;
             this.comboBoxColor.Text = "RGB";
             this.comboBoxColor.SelectedIndexChanged += new System.EventHandler(this.ColorFormatChanged);
             // 
@@ -192,7 +192,7 @@
             this.label2.Location = new System.Drawing.Point(86, 21);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 13);
-            this.label2.TabIndex = 15;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Color Format";
             // 
             // groupBox1
@@ -208,7 +208,7 @@
             this.groupBox1.Location = new System.Drawing.Point(3, 47);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(278, 158);
-            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Equations";
             // 
@@ -234,7 +234,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.label2);
             this.splitContainer1.Size = new System.Drawing.Size(580, 281);
             this.splitContainer1.SplitterDistance = 292;
-            this.splitContainer1.TabIndex = 17;
+            this.splitContainer1.TabIndex = 0;
+            this.splitContainer1.TabStop = false;
             // 
             // progressBar1
             // 
@@ -242,7 +243,7 @@
             this.progressBar1.Location = new System.Drawing.Point(3, 255);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(142, 23);
-            this.progressBar1.TabIndex = 18;
+            this.progressBar1.TabIndex = 4;
             // 
             // saveButton
             // 
@@ -251,7 +252,7 @@
             this.saveButton.Margin = new System.Windows.Forms.Padding(2);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(131, 69);
-            this.saveButton.TabIndex = 17;
+            this.saveButton.TabIndex = 5;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.SaveButton_Click);

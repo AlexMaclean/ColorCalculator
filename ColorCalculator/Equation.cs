@@ -78,7 +78,7 @@ namespace ColorCalculator
         private static ETree T(Queue<string> s)
         {
             var t = F(s);
-            while (s.Count > 0 && (s.Peek() == "*" || s.Peek() == "/"))
+            while (s.Count > 0 && (s.Peek() == "*" || s.Peek() == "/" || s.Peek() == "%"))
             {
                 var op = EBinary.GetBinaryOpperator(s.Dequeue());
                 var t1 = F(s);
@@ -175,7 +175,8 @@ namespace ColorCalculator
                 Subtact,
                 Multiply,
                 Divide,
-                Raise
+                Raise,
+                Modular
             }
 
             private readonly Opperator _opp;
@@ -203,6 +204,8 @@ namespace ColorCalculator
                         return _l.GetValue(v) / _r.GetValue(v);
                     case Opperator.Raise:
                         return Math.Pow(_l.GetValue(v), _r.GetValue(v));
+                    case Opperator.Modular:
+                        return _l.GetValue(v) % _r.GetValue(v);
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -217,6 +220,7 @@ namespace ColorCalculator
                     case "*": return Opperator.Multiply;
                     case "/": return Opperator.Divide;
                     case "^": return Opperator.Raise;
+                    case "%": return Opperator.Modular;
                     default: throw new ArgumentException();
                 }
             }

@@ -12,7 +12,7 @@ namespace ColorCalculator
     {
         public Bitmap Image { get; set; }
         public string ImagePath { get; set; }
-        private Stack<Bitmap> PastImages { get; set; }
+        private Stack<Bitmap> PastImages { get; }
 
         public MainWindow()
         {
@@ -59,16 +59,16 @@ namespace ColorCalculator
         private void RecalculateButton_Click(object sender, EventArgs e)
         {
             recalculateButton.Enabled = false;
-            var equ1 = defS(equation1.Text, value1.Text.Substring(0, 1));
-            var equ2 = defS(equation2.Text, value2.Text.Substring(0, 1));
-            var equ3 = defS(equation3.Text, value3.Text.Substring(0, 1));
-            var equ4 = defS(equation4.Text, value4.Text.Substring(0, 1));
+            var equ1 = DefaultString(equation1.Text, value1.Text.Substring(0, 1));
+            var equ2 = DefaultString(equation2.Text, value2.Text.Substring(0, 1));
+            var equ3 = DefaultString(equation3.Text, value3.Text.Substring(0, 1));
+            var equ4 = DefaultString(equation4.Text, value4.Text.Substring(0, 1));
             var colorCalculator = new ColorCalculator(equ1, equ2, equ3, equ4, comboBoxColor.Text.Equals("RGB"));
             var threadCalc = new Thread(() => CalculateColor(colorCalculator));
             threadCalc.Start();
         }
 
-        private string defS(string equation, string def)
+        private static string DefaultString(string equation, string def)
         {
             return equation == "" ? def : equation;
         }
@@ -77,7 +77,7 @@ namespace ColorCalculator
         {
             var newImage = colorCalculator.GetRecolor(new Bitmap(Image), SetProgress);
 
-            RunUI(() =>
+            RunUi(() =>
             {
                 PastImages.Push(Image);
                 SetImage(newImage);
@@ -89,10 +89,10 @@ namespace ColorCalculator
 
         private void SetProgress(int progressValue)
         {
-            RunUI(() => progressBar1.Value = progressValue);
+            RunUi(() => progressBar1.Value = progressValue);
         }
 
-        private void RunUI(Action a)
+        private void RunUi(Action a)
         {
             Invoke(a);
         }

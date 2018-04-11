@@ -10,7 +10,15 @@ namespace ColorCalculator
         public Equation(string equationString)
         {
             var splitEquation = SplitEquation(equationString);
-            _equation = EParse(splitEquation);
+            try
+            {
+                _equation = EParse(splitEquation);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Unable to parse: " + equationString);
+            }
+
         }
 
         public double Evaluate(Dictionary<char, double> variables)
@@ -51,7 +59,7 @@ namespace ColorCalculator
         {
             var s = new Queue<string>(equation);
             var t = E(s);
-            if (s.Count != 0) throw new Exception("invalid equation");
+            if (s.Count != 0) throw new Exception("Unable to parse equation");
             return t;
         }
 

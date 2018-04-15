@@ -140,6 +140,11 @@ namespace ColorCalculator
             value2.Text = rgb ? "Green" : "Saturation";
             value3.Text = rgb ? "Blue" : "Lightness";
             value4.Text = @"Alpha";
+
+            colorRangeToolTip.SetToolTip(value1, rgb ? "0 - 255" : "0 - 360");
+            colorRangeToolTip.SetToolTip(value2, rgb ? "0 - 255" : "0 - 1.0");
+            colorRangeToolTip.SetToolTip(value3, rgb ? "0 - 255" : "0 - 1.0");
+            colorRangeToolTip.SetToolTip(value4, "0 - 255");
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
